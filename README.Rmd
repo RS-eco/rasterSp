@@ -151,7 +151,7 @@ r_reptiles <- rasterizeIUCN(dsn=paste0(filedir, "/GARD_ranges/modeled_reptiles.s
 
 The calcSR function uses a stepwise procedure to calculate the sum of species for each grid cell. This means only two files are loaded into memory at the same time to avoid memory shortage.
 
-```{r calculate_sr}
+```{r calculate_sr, fig.width=10, fig.height=6}
 #Calculate amphibian richness
 data(amphibians)
 sr_amphibians <- calcSR(species_names=amphibians$binomial, path=paste0(filedir, "/SpeciesData/"))
@@ -210,7 +210,7 @@ ggmap2(sr_alltaxa, name=c("Amphibians", "Birds", "Mammals"), split=TRUE, ncol=1,
 
 ## Plot global map of Reptile SR
 
-```{r sr_reptiles, fig.width=7, fig.height=8, dpi=600}
+```{r sr_reptiles, fig.width=7, fig.height=8, dpi=600, eval=F}
 library(ggmap2)
 sr_rept <- do.call(rbind, list(sr_reptiles, sr_gard_reptiles))
 ggmap2(sr_rept, name=c("Reptiles", "GARD Reptiles"), split=TRUE, ncol=1, country=T)
