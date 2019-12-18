@@ -1,0 +1,44 @@
+---
+title: "IUCN Range Invasiveness"
+author: "RS-eco"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+First, we look at the BirdLife Range Maps of some invasive bird species (European starling, House sparrow and Sacred ibis).
+
+```{r}
+filedir <- "/media/matt/Data/Documents/Wissenschaft/Data/"
+birdfiles <- list.files(paste0(filedir, "/BirdLife_2018/"), pattern=".shp", full.names=TRUE)
+library(rgdal)
+bird1 <- readOGR(birdfiles[grepl(birdfiles, pattern="Sturnus_vulgaris")]) # European starling
+bird2 <- readOGR(birdfiles[grepl(birdfiles, pattern="Threskiornis_aethiopicus")]) #Sacred ibis
+bird3 <- readOGR(birdfiles[grepl(birdfiles, pattern="Passer_domesticus")]) # House sparrow
+```
+
+We want to compare the native origin (origin = 1, blue) with the introduced origin (origin = 3, red).
+
+```{r, fig.show='hold'}
+plot(bird1, main="European starling")
+plot(bird1[bird1@data$ORIGIN==1,], add=T, col="blue")
+plot(bird1[bird1@data$ORIGIN==3,], add=T, col="red")
+plot(bird3, main="House sparrow")
+plot(bird3[bird3@data$ORIGIN==1,], add=T, col="blue")
+plot(bird3[bird3@data$ORIGIN==3,], add=T, col="red")
+```
+
+```{r, fig.show='hold'}
+plot(bird2[bird2@data$ORIGIN==1,], col="blue", main="Sacred ibis (native)")
+plot(bird2[bird2@data$ORIGIN==3,], col="red", main="Sacred ibis (introduced)")
+```

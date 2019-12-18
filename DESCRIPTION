@@ -1,0 +1,20 @@
+Package: rasterSp
+Type: Package
+Title: R Package to rasterize and summarise IUCN range maps
+Version: 0.0.1
+Date: 2019-12-03
+Authors@R: 
+    person("RS-eco", email = "RS-eco@posteo.de", role = c("cre", "aut"))
+Maintainer: RS-eco <RS-eco@posteo.de>
+Description: R Package for accessing and processing IUCN range map data. Most importantly, it contains functions for rasterizing species distribution shapefiles (as obtained from IUCN or BirdLife) or point data (as obtained from eBird or GBIF).
+Depends: R (>= 3.5.0)
+Imports: parallel, rgeos, knitr, readr, dplyr, raster, methods, rgdal, sp, data.table, tidyselect
+Suggests: ncdf4, ggplot2, sf, fasterize
+License: MIT + file LICENSE
+LazyData: TRUE
+VignetteBuilder: knitr
+RoxygenNote: 7.0.2
+NeedsCompilation: no
+Author: RS-eco [cre, aut]
+URL: https://github.com/RS-eco/rasterSp
+BugReports: https://github.com/RS-eco/rasterSp/issues
