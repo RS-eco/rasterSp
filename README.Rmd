@@ -143,7 +143,7 @@ Additionally, please cite the Dryad data package:
 Meiri S, Roll U, Grenyer R, Feldman A, Novosolov M, Bauer AM (2017) Data from: The global distribution of tetrapods reveals a need for targeted reptile conservation. Dryad Digital Repository. https://doi.org/10.5061/dryad.83s7k 
 
 ```{r, eval=F}
-r_reptiles <- rasterizeIUCN(dsn=paste0(filedir, "/GARD_ranges/modeled_reptiles.shp"), id="Binomial", split=NA,
+r_reptiles <- rasterizeIUCN(dsn=paste0(filedir, "/GARD1.1_dissolved_ranges/modeled_reptiles.shp"), id="Binomial", split=NA,
                                resolution=0.5, save=TRUE, path=paste0(filedir, "/GARD_SpeciesData/"))
 ```
 

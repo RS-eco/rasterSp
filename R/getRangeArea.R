@@ -47,7 +47,7 @@ getRangeArea<- function(dsn=paste0(getwd(), "IUCN/AMPHIBIANS.shp"), id="binomial
     # Extract list of species
     species_list <- species_file %>% dplyr::select(dplyr::matches(id))
     sf::st_geometry(species_list) <- NULL
-    species_list <- levels(species_list[[1]])
+    species_list <- unique(species_list[[1]])
     
     # Define file name according to species
     species_name <- sapply(species_list, FUN=function(x) 
@@ -97,14 +97,15 @@ getRangeArea<- function(dsn=paste0(getwd(), "IUCN/AMPHIBIANS.shp"), id="binomial
     parallel::stopCluster(cl)
     do.call("rbind", r_sp)
   } else{
+    sp_ind_shp <- species_file
     # Extract only shapefiles with certain parameters
-    if(!anyNA(seasonal)){sp_ind_shp <- species_file[species_file$seasonal %in% seasonal,]}
+    if(!anyNA(seasonal)){sp_ind_shp <- sp_ind_shp[sp_ind_shp$seasonal %in% seasonal,]}
     if(!anyNA(origin)){sp_ind_shp <- sp_ind_shp[sp_ind_shp$origin %in% origin,]}
     if(!anyNA(presence)){sp_ind_shp <- sp_ind_shp[sp_ind_shp$presence %in% presence,]}
     if(length(sp_ind_shp)==0){} else{
       # Calculate area of each species
       area <- sf::st_area(sp_ind_shp)
-      data.frame(species_name=sp_ind_shp$binomial, area=area)
+      data.frame(species_name=sp_ind_shp[,c(id)], area=area)
     }
   }
 }

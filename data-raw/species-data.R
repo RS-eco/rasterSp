@@ -104,7 +104,7 @@ save(ter_birds, file="data/ter_birds.rda", compress="xz")
 # Dryad Digital Repository. https://doi.org/10.5061/dryad.83s7k 
 
 # Read reptiles
-gard_reptiles <- sf::read_sf(dsn=paste0(filedir, "/GARD_ranges/modeled_reptiles.shp"))
+gard_reptiles <- sf::read_sf(dsn=paste0(filedir, "/GARD1.1_dissolved_ranges/modeled_reptiles.shp"))
 
 # No need to subset data
 gard_reptiles %<>% as.data.frame() %>% select(-geometry) 
@@ -132,10 +132,10 @@ speciesData(species_names=unique(reptiles$binomial), path=paste0(filedir, "/Spec
             filename="data/reptiles_dist.csv.xz")
 
 data(gard_reptiles)
-speciesData(species_names=unique(reptiles$binomial), path=paste0(filedir, "/GARD_SpeciesData/"), 
+speciesData(species_names=unique(gard_reptiles$Binomial), path=paste0(filedir, "/GARD_SpeciesData/"), 
             filename="data/gard_reptiles_dist.csv.xz")
 
-data(ter_birds)
+  data(ter_birds)
 speciesData(species_names=unique(ter_birds$SCINAME), path=paste0(filedir, "/SpeciesData/"), 
             filename="data/ter_birds_dist.csv.xz")
 
@@ -227,8 +227,8 @@ range_birds <- getRangeArea(dsn=list.files(paste0(filedir, "/BirdLife/"), patter
                             id="SCINAME", seasonal=c(1,2), origin=1, presence=c(1,2))
 range_reptiles <- getRangeArea(dsn=paste0(filedir, "/IUCN/REPTILES.shp"), 
                                seasonal=c(1,2), origin=1, presence=c(1,2))
-range_gard_reptiles <- getRangeArea(dsn=paste0(filedir, "/GARD_ranges/modeled_reptiles.shp"), 
-                                    seasonal=c(1,2), origin=1, presence=c(1,2))
+range_gard_reptiles <- getRangeArea(dsn=paste0(filedir, "/GARD1.1_dissolved_ranges/modeled_reptiles.shp"),
+                                    id="Binomial")
 
 amphibians_endemic <- range_amphibians %>% filter(area <= quantile(range_amphibians$area, probs=0.15, type=7))
 save(amphibians_endemic, file="data/amphibians_endemic.rda", compress="xz")
@@ -242,10 +242,11 @@ save(ter_birds_endemic, file="data/ter_birds_endemic.rda", compress="xz")
 reptiles_endemic <- range_reptiles %>% filter(area <= quantile(range_reptiles$area, probs=0.15)) %>% data.frame()
 save(reptiles_endemic, file="data/reptiles_endemic.rda", compress="xz")
 
-gard_reptiles_endemic <- range_gard_reptiles %>% filter(area <= quantile(range_gard_reptiles$area, probs=0.15)) %>% data.frame()
+gard_reptiles_endemic <- range_gard_reptiles %>% filter(area <= quantile(range_gard_reptiles$area, probs=0.15)) %>% 
+  data.frame()
 save(gard_reptiles_endemic, file="data/gard_reptiles_endemic.rda", compress="xz")
 
-# Create dataframe of threatened species (amphibian and mammal files come from Alke's collegue,
+# Create dataframe of threatened species (amphibian and mammal files come from Alke's colleague,
 # bird data is included in the BirdLife checklist files).
 
 #Get information on threat

@@ -52,7 +52,7 @@ rasterizeIUCN <- function(dsn=paste0(getwd(), "IUCN/AMPHIBIANS.shp"), id="binomi
       }
       
       # Define file name according to list of species
-      species_name <- sapply(levels(unlist(dplyr::select(as.data.frame(species_file), id))), FUN=function(x){
+      species_name <- sapply(unique(unlist(dplyr::select(as.data.frame(species_file), id))), FUN=function(x){
         paste0(strsplit(as.character(x), split=" ")[[1]][name_split], collapse="_")
       })
       
@@ -165,7 +165,7 @@ rasterizeIUCN <- function(dsn=paste0(getwd(), "IUCN/AMPHIBIANS.shp"), id="binomi
     } else{
       if(requireNamespace("sf") == TRUE){
         # Extract list of species
-        species_list <- levels(unlist(dplyr::select(as.data.frame(species_file), id)))
+        species_list <- unique(unlist(dplyr::select(as.data.frame(species_file), id)))
         
         # Select only polygons of one species
         sp_ind_shp <- species_file[as.data.frame(species_file)[,c(id)] == species_list[n],]

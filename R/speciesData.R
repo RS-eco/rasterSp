@@ -62,14 +62,17 @@ speciesData <- function(species_names=NA, path=getwd(), filename=NA, ...){
       
       # Turn raster file into a dataframe
       df_species <- as.data.frame(raster::rasterToPoints(r_species))
-      
-      # Remove presence column
-      df_species <- df_species[,c("x", "y")]
-
-      # Add column with species name
-      df_species$species <- paste(strsplit(x, "_")[[1]][1:2], collapse=" ")
-      
-      return(df_species)
+      if(nrow(df_species) > 0){
+        # Remove presence column
+        df_species <- df_species[,c("x", "y")]
+        
+        # Add column with species name
+        df_species$species <- paste(strsplit(x, "_")[[1]][1:2], collapse=" ")
+        
+        return(df_species)
+      } else{
+        return(NULL)
+      }
     })
     # Close the cluster
     parallel::stopCluster(cl)
