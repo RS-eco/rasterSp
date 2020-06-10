@@ -135,7 +135,7 @@ data(gard_reptiles)
 speciesData(species_names=unique(gard_reptiles$Binomial), path=paste0(filedir, "/GARD_SpeciesData/"), 
             filename="data/gard_reptiles_dist.csv.xz")
 
-  data(ter_birds)
+data(ter_birds)
 speciesData(species_names=unique(ter_birds$SCINAME), path=paste0(filedir, "/SpeciesData/"), 
             filename="data/ter_birds_dist.csv.xz")
 
