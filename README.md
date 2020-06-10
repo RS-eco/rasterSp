@@ -171,7 +171,7 @@ reptile conservation. Dryad Digital Repository.
 <https://doi.org/10.5061/dryad.83s7k>
 
 ``` r
-r_reptiles <- rasterizeIUCN(dsn=paste0(filedir, "/GARD_ranges/modeled_reptiles.shp"), id="Binomial", split=NA,
+r_reptiles <- rasterizeIUCN(dsn=paste0(filedir, "/GARD1.1_dissolved_ranges/modeled_reptiles.shp"), id="Binomial", split=NA,
                                resolution=0.5, save=TRUE, path=paste0(filedir, "/GARD_SpeciesData/"))
 ```
 
@@ -326,7 +326,7 @@ knitr::kable(sum_records, style="markdown")
 | :------------ | ------: | --------------: | ------: |
 | Amphibians    |    3317 |            1471 |    1593 |
 | Birds         |     896 |            1549 |    7440 |
-| GARD Reptiles |    1853 |            1383 |    2081 |
+| GARD Reptiles |    2483 |            1953 |    3197 |
 | Mammals       |     968 |            1020 |    3288 |
 | Reptiles      |    2047 |            1282 |    1970 |
 
