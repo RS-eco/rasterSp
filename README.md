@@ -140,8 +140,7 @@ writeOGR(botw, dsn=paste0(filedir, "/BirdLife_2017/"), layer="All_Species", driv
 
 In our case this was done in ArcMap, as it is much faster, although
 using sf might increase the performance in R considerably. The shapefile
-can then be loaded directly from file,
-by:
+can then be loaded directly from file, by:
 
 ``` r
 botw <- readOGR(dsn=paste0(filedir, "/BirdLife_2017/"), layer="All_Species")
@@ -187,8 +186,6 @@ data(amphibians)
 sr_amphibians <- calcSR(species_names=amphibians$binomial, path=paste0(filedir, "/SpeciesData/"))
 raster::plot(sr_amphibians)
 ```
-
-![](figures/calculate_sr-1.png)<!-- -->
 
 However, this approach takes quite a while and means we have to
 recalculate the species richness everytime we change the species names.
@@ -251,8 +248,11 @@ ggmap2(sr_alltaxa, name=c("Amphibians", "Birds", "Mammals"), split=TRUE, ncol=1,
 ``` r
 library(ggmap2)
 sr_rept <- do.call(rbind, list(sr_reptiles, sr_gard_reptiles))
+sr_rept <- tidyr::spread(sr_rept, group, sum)
 ggmap2(sr_rept, name=c("Reptiles", "GARD Reptiles"), split=TRUE, ncol=1, country=T)
 ```
+
+![](figures/sr_reptiles-1.png)<!-- -->
 
 <!--
 ## Calculate and plot SR by order or family
@@ -322,15 +322,15 @@ colnames(sum_records) <- c("Group", "n < 10", "10 <= n <= 50", "n > 50")
 knitr::kable(sum_records, style="markdown")
 ```
 
-| Group         | n \< 10 | 10 \<= n \<= 50 | n \> 50 |
-| :------------ | ------: | --------------: | ------: |
-| Amphibians    |    3317 |            1471 |    1593 |
-| Birds         |     896 |            1549 |    7440 |
-| GARD Reptiles |    2483 |            1953 |    3197 |
-| Mammals       |     968 |            1020 |    3288 |
-| Reptiles      |    2047 |            1282 |    1970 |
+| Group         | n &lt; 10 | 10 &lt;= n &lt;= 50 | n &gt; 50 |
+|:--------------|----------:|--------------------:|----------:|
+| Amphibians    |      3317 |                1471 |      1593 |
+| Birds         |       896 |                1549 |      7440 |
+| GARD Reptiles |      2483 |                1953 |      3197 |
+| Mammals       |       968 |                1020 |      3288 |
+| Reptiles      |      2047 |                1282 |      1970 |
 
-## Create plot of small ranging species (n \< 10)
+## Create plot of small ranging species (n &lt; 10)
 
 ``` r
 #Calculate SR of for non-modelled species

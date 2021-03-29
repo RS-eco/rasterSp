@@ -1,6 +1,8 @@
 ---
 title: "rasterSp - R Package to rasterize and summarise IUCN range maps"
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## R Setup
@@ -151,7 +153,7 @@ r_reptiles <- rasterizeIUCN(dsn=paste0(filedir, "/GARD1.1_dissolved_ranges/model
 
 The calcSR function uses a stepwise procedure to calculate the sum of species for each grid cell. This means only two files are loaded into memory at the same time to avoid memory shortage.
 
-```{r calculate_sr, fig.width=10, fig.height=6}
+```{r calculate_sr, fig.width=10, fig.height=6, eval=F}
 #Calculate amphibian richness
 data(amphibians)
 sr_amphibians <- calcSR(species_names=amphibians$binomial, path=paste0(filedir, "/SpeciesData/"))
@@ -210,9 +212,10 @@ ggmap2(sr_alltaxa, name=c("Amphibians", "Birds", "Mammals"), split=TRUE, ncol=1,
 
 ## Plot global map of Reptile SR
 
-```{r sr_reptiles, fig.width=7, fig.height=8, dpi=600, eval=F}
+```{r sr_reptiles, fig.width=7, fig.height=8, dpi=600}
 library(ggmap2)
 sr_rept <- do.call(rbind, list(sr_reptiles, sr_gard_reptiles))
+sr_rept <- tidyr::spread(sr_rept, group, sum)
 ggmap2(sr_rept, name=c("Reptiles", "GARD Reptiles"), split=TRUE, ncol=1, country=T)
 ```
 
