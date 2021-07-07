@@ -4,7 +4,9 @@
 \name{ter_birds_endemic}
 \alias{ter_birds_endemic}
 \title{Names of endemic bird Species}
-\format{A \code{data.frame} with 1956 observations and 2 variables.}
+\format{
+A \code{data.frame} with 1956 observations and 2 variables.
+}
 \description{
 Data with endemic terrestrial bird species names and their range area
 }

@@ -4,7 +4,9 @@
 \name{gard_reptiles_endemic}
 \alias{gard_reptiles_endemic}
 \title{Names of endemic reptile species}
-\format{A \code{data.frame} with 0 observations and 1 variables.}
+\format{
+A \code{data.frame} with 0 observations and 1 variables.
+}
 \description{
 Data with endemic GARD reptile species names and their range area
 }

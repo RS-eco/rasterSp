@@ -4,7 +4,9 @@
 \name{ter_birds_dist_eur}
 \alias{ter_birds_dist_eur}
 \title{Distribution of terrestrial birds at 0.11 degree spatial resolution for Europe}
-\format{A \code{data.frame} with 10108394 observations and 3 variables.}
+\format{
+A \code{data.frame} with 10108394 observations and 3 variables.
+}
 \description{
 Data with x,y coordinates for each terrestrial bird species (present in 0.11 degree grid cells)
 }

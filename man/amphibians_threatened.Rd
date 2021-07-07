@@ -4,7 +4,9 @@
 \name{amphibians_threatened}
 \alias{amphibians_threatened}
 \title{Distribution of threatened amphibian species}
-\format{A \code{data.frame} with 229425 observations and 5 variables.}
+\format{
+A \code{data.frame} with 229425 observations and 5 variables.
+}
 \description{
 Data with x,y coordinates for each amphibian species that is Critically Endangered, Endangered or Vulnerable
 }

@@ -4,7 +4,9 @@
 \name{gard_reptiles_dist}
 \alias{gard_reptiles_dist}
 \title{Distribution of reptiles at 0.5 degree spatial resolution}
-\format{A \code{data.frame} with 1001518 observations and 3 variables.}
+\format{
+A \code{data.frame} with 1001518 observations and 3 variables.
+}
 \description{
 Data with x,y coordinates for each reptile species (present in 0.5 degree grid cells)
 }

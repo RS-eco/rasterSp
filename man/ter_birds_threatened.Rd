@@ -4,7 +4,9 @@
 \name{ter_birds_threatened}
 \alias{ter_birds_threatened}
 \title{Distribution of threatened bird species}
-\format{A \code{data.frame} with 204060 observations and 5 variables.}
+\format{
+A \code{data.frame} with 204060 observations and 5 variables.
+}
 \description{
 Data with x,y coordinates for each bird species that is Critically Endangered, Endangered or Vulnerable
 }

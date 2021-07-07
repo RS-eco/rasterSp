@@ -4,7 +4,9 @@
 \name{amphibians_dist_smallrange}
 \alias{amphibians_dist_smallrange}
 \title{Distribution of small ranging amphibians}
-\format{A \code{data.frame} with 10463 observations and 5 variables.}
+\format{
+A \code{data.frame} with 10463 observations and 5 variables.
+}
 \description{
 Data with x,y coordinates for each amphibian species that has less than 10 occurrences (present in 0.5 degree grid cells)
 }

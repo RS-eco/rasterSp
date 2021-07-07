@@ -4,7 +4,9 @@
 \name{ter_birds_dist_smallrange}
 \alias{ter_birds_dist_smallrange}
 \title{Distribution of small ranging bird species}
-\format{A \code{data.frame} with 3878 observations and 5 variables.}
+\format{
+A \code{data.frame} with 3878 observations and 5 variables.
+}
 \description{
 Data with x,y coordinates for each bird species that has less than 10 occurrences (present in 0.5 degree grid cells)
 }

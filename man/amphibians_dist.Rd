@@ -4,7 +4,9 @@
 \name{amphibians_dist}
 \alias{amphibians_dist}
 \title{Distribution of amphibians at 0.5 degree spatial resolution}
-\format{A \code{data.frame} with 792695 observations and 3 variables.}
+\format{
+A \code{data.frame} with 792695 observations and 3 variables.
+}
 \description{
 Data with x,y coordinates for each amphibian species (present in 0.5 degree grid cells)
 }

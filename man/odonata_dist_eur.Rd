@@ -4,7 +4,9 @@
 \name{odonata_dist_eur}
 \alias{odonata_dist_eur}
 \title{Distribution of Odonata species at 0.11 degree spatial resolution for Europe}
-\format{A \code{data.frame} with 2334175 observations and 7 variables.}
+\format{
+A \code{data.frame} with 2334175 observations and 7 variables.
+}
 \description{
 Data with x,y coordinates for each Odonata species (present in 0.11 degree grid cells) in Europe
 }

@@ -4,7 +4,9 @@
 \name{threat_status_mammals}
 \alias{threat_status_mammals}
 \title{IUCN threat status for each mammal species of the IUCN range map data}
-\format{A \code{data.frame} with 5472 observations and 10 variables.}
+\format{
+A \code{data.frame} with 5472 observations and 10 variables.
+}
 \description{
 Data with the species information of each mammal and its current IUCN threat status
 }

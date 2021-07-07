@@ -4,7 +4,9 @@
 \name{reptiles}
 \alias{reptiles}
 \title{Latin names of Reptile Species}
-\format{A \code{data.frame} with 7066 observations and 10 variables.}
+\format{
+A \code{data.frame} with 7066 observations and 10 variables.
+}
 \description{
 Latin names of Reptile Species
 }

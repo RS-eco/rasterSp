@@ -4,7 +4,9 @@
 \name{amphibians}
 \alias{amphibians}
 \title{Latin names of Amphibian Species}
-\format{A \code{data.frame} with 6618 observations and 10 variables.}
+\format{
+A \code{data.frame} with 6618 observations and 10 variables.
+}
 \description{
 Latin names of Amphibian Species
 }

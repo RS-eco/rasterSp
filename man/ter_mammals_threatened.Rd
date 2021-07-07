@@ -4,7 +4,9 @@
 \name{ter_mammals_threatened}
 \alias{ter_mammals_threatened}
 \title{Distribution of threatened mammal species}
-\format{A \code{data.frame} with 169656 observations and 5 variables.}
+\format{
+A \code{data.frame} with 169656 observations and 5 variables.
+}
 \description{
 Data with x,y coordinates for each mammal species that is Critically Endangered, Endangered or Vulnerable
 }

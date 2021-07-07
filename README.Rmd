@@ -20,7 +20,7 @@ To *use* the package, you first have to install it from GitHub using the `remote
 if(!"remotes" %in% installed.packages()[,"Package"]) install.packages("remotes")
 
 # Install rasterSp from Github if not previously installed
-if(!"rasterSp" %in% installed.packages()[,"Package"]) remotes::install_github("RS-eco/rasterSp", build_vignettes = T)
+if(!"rasterSp" %in% installed.packages()[,"Package"]) remotes::install_github("RS-eco/rasterSp")
 ```
 
 Load the rasterSp package

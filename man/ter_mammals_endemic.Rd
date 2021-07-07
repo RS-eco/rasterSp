@@ -4,7 +4,9 @@
 \name{ter_mammals_endemic}
 \alias{ter_mammals_endemic}
 \title{Names of endemic mammal Species}
-\format{A \code{data.frame} with 4852 observations and 2 variables.}
+\format{
+A \code{data.frame} with 4852 observations and 2 variables.
+}
 \description{
 Data with endemic mammal species names and their range area
 }

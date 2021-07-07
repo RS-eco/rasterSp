@@ -4,7 +4,9 @@
 \name{ter_birds}
 \alias{ter_birds}
 \title{Latin names of Bird Species}
-\format{A \code{data.frame} with 17835 observations and 8 variable.}
+\format{
+A \code{data.frame} with 17835 observations and 8 variable.
+}
 \description{
 Latin names of Bird Species
 }

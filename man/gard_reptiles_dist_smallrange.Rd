@@ -4,7 +4,9 @@
 \name{gard_reptiles_dist_smallrange}
 \alias{gard_reptiles_dist_smallrange}
 \title{Distribution of small ranging reptiles}
-\format{A \code{data.frame} with 15960 observations and 5 variables.}
+\format{
+A \code{data.frame} with 15960 observations and 5 variables.
+}
 \description{
 Data with x,y coordinates for each reptile species that has less than 10 occurrences (present in 0.5 degree grid cells)
 }

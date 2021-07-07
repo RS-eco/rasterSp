@@ -4,7 +4,9 @@
 \name{amphibians_endemic}
 \alias{amphibians_endemic}
 \title{Names of endemic amphibian Species}
-\format{A \code{data.frame} with 2700 observations and 2 variables.}
+\format{
+A \code{data.frame} with 2700 observations and 2 variables.
+}
 \description{
 Data with endemic amphibian species names and their range area
 }

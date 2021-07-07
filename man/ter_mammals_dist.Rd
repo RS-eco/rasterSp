@@ -4,7 +4,9 @@
 \name{ter_mammals_dist}
 \alias{ter_mammals_dist}
 \title{Distribution of terrestrial mammals at 0.5 degree spatial resolution}
-\format{A \code{data.frame} with 3396275 observations and 3 variables.}
+\format{
+A \code{data.frame} with 3396275 observations and 3 variables.
+}
 \description{
 Data with x,y coordinates for each terrestrial mammal species (present in 0.5 degree grid cells)
 }

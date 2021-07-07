@@ -4,7 +4,9 @@
 \name{reptiles_endemic}
 \alias{reptiles_endemic}
 \title{Names of endemic reptile species}
-\format{A \code{data.frame} with 1344 observations and 2 variables.}
+\format{
+A \code{data.frame} with 1344 observations and 2 variables.
+}
 \description{
 Data with endemic IUCN reptile species names and their range area
 }

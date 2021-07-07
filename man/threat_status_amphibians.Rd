@@ -4,7 +4,9 @@
 \name{threat_status_amphibians}
 \alias{threat_status_amphibians}
 \title{IUCN threat status for each amphibian species of the IUCN range map data}
-\format{A \code{data.frame} with 6997 observations and 10 variables.}
+\format{
+A \code{data.frame} with 6997 observations and 10 variables.
+}
 \description{
 Data with the species information of each amphibian and its current IUCN threat status
 }

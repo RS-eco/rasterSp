@@ -4,7 +4,9 @@
 \name{seabird_species}
 \alias{seabird_species}
 \title{Latin names of all sea bird species}
-\format{A \code{data.frame} with 358 observations and 1 variable.}
+\format{
+A \code{data.frame} with 358 observations and 1 variable.
+}
 \description{
 Latin names of all bird species that occur in the ocean
 }

@@ -4,7 +4,9 @@
 \name{ter_mammals}
 \alias{ter_mammals}
 \title{Latin names of Terrestrial Mammal Species}
-\format{A \code{data.frame} with 6067 observations and 10 variables.}
+\format{
+A \code{data.frame} with 6067 observations and 10 variables.
+}
 \description{
 Latin names of Terrestrial Mammal Species
 }
