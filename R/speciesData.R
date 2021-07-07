@@ -82,7 +82,7 @@ speciesData <- function(species_names=NA, path=getwd(), filename=NA, ...){
     
     # Save dataframe to file
     if(unique(!is.na(filename))){
-      readr::write_csv(df_species, path=filename, ...)
+      readr::write_csv(df_species, file=filename, ...)
     }
   }
   return(df_species)
