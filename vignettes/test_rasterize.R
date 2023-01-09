@@ -1,0 +1,73 @@
+## ----setup, include = FALSE---------------------------------------------------
+knitr::opts_chunk$set(
+  collapse = TRUE, fig.width=7, fig.height=5, comment = "#>"
+)
+
+## -----------------------------------------------------------------------------
+library(rasterSp); library(terra)
+
+r_pass_dom <- rasterizeRange(dsn=system.file("extdata", "passer_domesticus.shp", 
+                                            package = "rasterSp"),
+                            id="SCINAME", resolution=0.5, save=F, df=F, touches=T,
+                            seasonal=NA, origin=NA, presence=c(1,2))
+plot(r_pass_dom)
+global(r_pass_dom, fun="sum", na.rm=T)
+
+r_pass_dom <- rasterizeRange(dsn=system.file("extdata", "passer_domesticus.shp", 
+                                            package = "rasterSp"),
+                            id="SCINAME", resolution=0.5, save=F, df=F, touches=T,
+                            seasonal=c(1,2), origin=1, presence=c(1,2))
+plot(r_pass_dom)
+global(r_pass_dom, fun="sum", na.rm=T)
+
+r_pass_dom <- rasterizeRange(dsn=system.file("extdata", "passer_domesticus.shp", 
+                                            package = "rasterSp"),
+                            id="SCINAME", resolution=0.5, save=F, df=F, touches=F,
+                            seasonal=c(1,2), origin=1, presence=c(1,2))
+global(r_pass_dom, fun="sum", na.rm=T)
+
+r_pass_dom <- rasterizeRange(dsn=system.file("extdata", "passer_domesticus.shp", 
+                                            package = "rasterSp"),
+                            id="SCINAME", resolution=0.5, save=F, df=T, touches=T,
+                            seasonal=c(1,2), origin=1, presence=c(1,2))
+head(r_pass_dom)
+
+r_pass_dom <- rasterizeRange(dsn=system.file("extdata", "passer_domesticus.shp", 
+                                            package = "rasterSp"),
+                            id="SCINAME", resolution=0.5, save=F, df=F, touches=T, getCover=T,
+                            seasonal=c(1,2), origin=1, presence=c(1,2))
+plot(r_pass_dom)
+
+r_pass_dom <- rasterizeRange(dsn=system.file("extdata", "passer_domesticus.shp", 
+                                            package = "rasterSp"),
+                            id="SCINAME", resolution=0.5, save=F, df=F, touches=F, getCover=T,
+                            seasonal=c(1,2), origin=1, presence=c(1,2))
+plot(r_pass_dom)
+
+## -----------------------------------------------------------------------------
+library(dplyr)
+r_birds <- rasterizeRange(dsn=list.files(paste0(system.file(package = "rasterSp"), 
+                                                  "/extdata"), pattern=".shp", full.names=T),
+                            id="SCINAME", resolution=0.5, save=F, df=F, touches=F, getCover=F,
+                            seasonal=c(1,2), origin=1, presence=c(1,2))
+plot(r_birds)
+global(r_birds, fun="sum", na.rm=T)
+
+r_birds <- rasterizeRange(dsn=list.files(paste0(system.file(package = "rasterSp"), 
+                                                  "/extdata"), pattern=".shp", full.names=T),
+                            id="SCINAME", resolution=0.5, save=F, df=F, touches=T, getCover=F,
+                            seasonal=c(1,2), origin=1, presence=c(1,2))
+global(r_birds, fun="sum", na.rm=T)
+
+r_birds <- rasterizeRange(dsn=list.files(paste0(system.file(package = "rasterSp"), 
+                                                  "/extdata"), pattern=".shp", full.names=T),
+                            id="SCINAME", resolution=0.5, save=F, df=F, touches=T, getCover=T,
+                            seasonal=c(1,2), origin=1, presence=c(1,2))
+plot(r_birds)
+
+r_birds <- rasterizeRange(dsn=list.files(paste0(system.file(package = "rasterSp"), 
+                                                  "/extdata"), pattern=".shp", full.names=T),
+                            id="SCINAME", resolution=0.5, save=F, df=T, touches=T, 
+                         seasonal=c(1,2), origin=1, presence=c(1,2))
+r_birds %>% group_by(species) %>% summarise(n=n())
+

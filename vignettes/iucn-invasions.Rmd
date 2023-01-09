@@ -1,0 +1,46 @@
+---
+title: "IUCN Range Invasiveness"
+author: "RS-eco"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{IUCN Range Invasiveness}}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+First, we look at the BirdLife Range Maps of some invasive bird species (European starling, House sparrow and Sacred ibis).
+
+```{r}
+library(rasterSp)
+sturnus_vulgaris <- sf::st_read(system.file("extdata", "sturnus_vulgaris.shp", package = "rasterSp"))
+passer_domesticus <-  sf::st_read(system.file("extdata", "passer_domesticus.shp", package = "rasterSp"))
+threskiornis_aethiopicus <-  sf::st_read(system.file("extdata", "threskiornis_aethiopicus.shp", 
+                                                    package = "rasterSp"))
+```
+
+We want to compare the native origin (origin = 1, blue) with the introduced origin (origin = 3, red).
+
+```{r, fig.show='hold'}
+library(sf); library(dplyr)
+sturnus_vulgaris %>% st_geometry() %>% plot(main="European starling")
+sturnus_vulgaris %>% filter(ORIGIN==1) %>% st_geometry() %>% plot(add=T, col="blue")
+sturnus_vulgaris %>% filter(ORIGIN==3) %>% st_geometry() %>% plot(add=T, col="blue")
+passer_domesticus %>% st_geometry() %>% plot(main="House sparrow")
+passer_domesticus %>% filter(ORIGIN==1) %>% st_geometry() %>% plot(add=T, col="blue")
+passer_domesticus %>% filter(ORIGIN==3) %>% st_geometry() %>% plot(add=T, col="red")
+```
+
+```{r, fig.show='hold'}
+threskiornis_aethiopicus %>% filter(ORIGIN==1) %>% 
+  st_geometry() %>% plot(col="blue", main="Sacred ibis (native)")
+threskiornis_aethiopicus %>% filter(ORIGIN==3) %>% 
+  st_geometry() %>% plot(col="red", main="Sacred ibis (introduced)")
+```
